@@ -1,0 +1,104 @@
+package com.chainsys.reflection;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.lang.reflect.Parameter;
+import java.util.Scanner;
+
+public class ListClassMembers {
+
+    public static void main(String args[]) {
+        // testA();
+        // lateBinding();
+        //queryTypeInfo();
+        //testsetAccessible();
+        printClassInfo(args);
+
+    }
+
+    public static void printClassInfo(Object ob) {
+        Class<?> classreflected = ob.getClass();
+        System.out.println(classreflected.getName());
+        System.out.println("Constructors:");
+        Constructor<?> constructorlist[] = classreflected.getConstructors();
+        for (int i = 0; i < constructorlist.length; i++) {
+            System.out.println("\t" + constructorlist[i]);
+        }
+        //
+        System.out.println("Methods:");
+        Method methodlist[] = classreflected.getMethods();
+        // for(int i = 0; i < m
+        for (int i = 0; i < methodlist.length; i++) {
+            methodlist[i].setAccessible(true);
+            System.out.println("\t Method Name: " + methodlist[i].getName() + " ParameterCount "
+                    + methodlist[i].getParameterCount() + " returnType " + methodlist[i].getReturnType());
+        }
+    }
+    public static void testA() {
+        String s1 = "Hello";
+        // Class<?> stringclass=s1.getClass();
+        printClassInfo(s1);
+        Integer x = 2000;
+        // Class<?> intClass=x.getClass();
+        printClassInfo(x);
+        Emp firstEmp = new Emp();
+        // Class<?> empClass=firstEmp.getClass();
+        printClassInfo(firstEmp);
+        Actor hero = new Actor();
+        printClassInfo(hero);
+    }
+    public static void testB() {
+
+        String classname = "com.chainsys.reflection.Actor";
+        Class<?> classReference;
+        try {
+            classReference = Class.forName(classname); // Actor actorclass=null;
+            //fetch an array of references to each constructor in the class
+            Constructor<?> clist[]=classReference.getConstructors();
+            // newInstance is a method that create an instance(object) of the calss
+            // using the  constructor reference
+            
+            Object first_obj =clist[0].newInstance();  // first_obj=new Actor()
+        
+           // fetch reference to the default constructor of the class
+           Constructor<?> defaultConstructor=classReference.getDeclaredConstructor();
+           Object obj=defaultConstructor.newInstance();
+        
+        } catch (ClassNotFoundException e1) {
+            e1.printStackTrace();
+        }
+    
+         catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        }
+
+public static void earlyBinding() {
+     Actor actorReference = new Actor();
+
+    actorReference.Name = "SK";
+    actorReference.city = "Chennai";
+    actorReference.printCity();
+    actorReference.printName();
+        }
+
+
+
+
+    
+
+        

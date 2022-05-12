@@ -1,0 +1,33 @@
+package com.chainsys;
+
+import java.sql.*;  
+public class databasemetadata2{  
+public static void main(String args[]){  
+try{  
+Class.forName("oracle.jdbc.driver.OracleDriver");  
+  
+Connection con=DriverManager.getConnection(  
+"jdbc:oracle:thin:@localhost:1521:xe","system","Rpoo5397");  
+  
+DatabaseMetaData dbmd=con.getMetaData();  
+String table[]={"employees"};  
+ResultSet rs=dbmd.getTables(null,null,table,null);
+
+  
+//while(rs.next()){  
+//System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3));  
+//}  
+  
+while (rs.next()) {
+    System.out.println("Table name: "+rs.getString("Table_NAME"));
+    System.out.println("Table type: "+rs.getString("TABLE_TYPE"));
+    System.out.println("Table schema: "+rs.getString("TABLE_SCHEM"));
+    System.out.println("Table catalog: "+rs.getString("TABLE_CAT"));
+    System.out.println(" ");
+ }
+con.close();  
+  
+}catch(Exception e){ System.out.println(e);}  
+  
+}  
+}  
