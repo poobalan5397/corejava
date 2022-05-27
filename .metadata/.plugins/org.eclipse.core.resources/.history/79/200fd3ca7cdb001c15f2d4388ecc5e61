@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div style="width: 50%; margin: 0 auto">
+<h1> welcome </h1>
+<div>
+<a href="/firstWebsite/webapp/Addemployee">Employees</a>
+</div>
+<div>
+<a href="/firstWebsite/webapp/Deletemployee">DeleteEmployees</a>
+</div>
+<div>
+<a href="/firstWebsite/webapp/adddoctor">Doctor</a>
+</div>
+<div><a href="/firstWebsite/appoints">appointments</a>
+</div>
+
+</div>
+</body>
+</html>

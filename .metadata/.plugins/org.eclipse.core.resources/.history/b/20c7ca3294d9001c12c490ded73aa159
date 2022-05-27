@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>deleteemployee</title>
+</head>
+<body>
+<form action="Employees" method="Delete">
+ID: <input type='text' name='id'>
+</form>
+</body>
+</html>

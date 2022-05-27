@@ -1,0 +1,18 @@
+1652614493605	Encapsulate field 'doctor_id'
+1652614505069	Encapsulate field 'doctor_name'
+1652614513687	Encapsulate field 'hire_date'
+1652614521941	Encapsulate field 'doctor_speciality'
+1652614531525	Encapsulate field 'phone_no'
+1652614539001	Encapsulate field 'standard_fees'
+1652617501684	Encapsulate field 'city'
+1652680391277	Encapsulate field 'appointments_id'
+1652680397837	Encapsulate field 'appointments_date'
+1652680405266	Encapsulate field 'docotor_id'
+1652680412833	Encapsulate field 'patient_name'
+1652680420889	Encapsulate field 'fees_collected'
+1652680432225	Encapsulate field 'fees_category'
+1652768905342	Rename type 'validator'
+1652943896030	Copy package
+1652943914116	Copy package
+1652943926945	Copy package
+1652943942921	Copy package

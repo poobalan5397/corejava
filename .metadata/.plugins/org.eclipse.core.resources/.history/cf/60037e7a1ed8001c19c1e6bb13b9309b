@@ -1,0 +1,65 @@
+package com.chainsys.webapp.first;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class GlobalState
+ */
+public class GlobalState extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public GlobalState() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out= response.getWriter();
+	    response.setContentType("text/html");
+	    out.println("<html><head><title>Attributes</title></head><body>");
+	 String submitvalue=request.getParameter("submit");
+	ServletContext ctx=this.getServletContext();
+	
+	 //HttpSession session=request.getSession(true);// createsession id(token)
+	 if(submitvalue.equals("set"))
+	{
+	 
+	 String salaryInput=request.getParameter("salary");
+	    ctx.setAttribute("ctxsalary", salaryInput);//store data in session for each user variable
+	    //session.setAttribute()stores the data in a collection using key and value.
+	    //salayr = key, salaryInput=value;
+	    out.println("<h1>value set</h1>" + salaryInput);//return value
+	}
+	else if(submitvalue.equals("fetch"))
+	{
+		String contextSalary=ctx.getAttribute("ctxsalary").toString();
+	    out.println("<h1>value fetched</h1> "+ contextSalary);//returning value from servlet context variable
+	}
+	    out.println("</body></html");
+	    //data stored in servlet context is multiuser, and can be
+	    // read or modify from all other servlets.
+	}
+
+}

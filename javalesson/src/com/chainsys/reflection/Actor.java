@@ -5,15 +5,18 @@ public class Actor
 	public  String Name;
 	String city;
 	protected  long pincode;
+	public Actor(String value)
+	{
+		Name=value;
+		System.out.println(Name);
+	}
 	
 	public Actor()
 	{
 		Name="default";
 	}
-	public Actor(String value)
-	{
-		Name=value;
-	}
+	
+	
 	
   public void printName()
   {
@@ -32,4 +35,5 @@ public class Actor
   {
 	 System.out.println(" printPincode "+pincode);
   }
+
 }

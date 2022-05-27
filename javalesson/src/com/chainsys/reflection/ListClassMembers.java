@@ -12,10 +12,11 @@ public class ListClassMembers {
 
 	public static void main(String args[]) {
 		// testA();
-		// lateBinding();
-		//queryTypeInfo();
+		 //testB();
+		 lateBinding();
+		 // queryTypeInfo();
 		//testsetAccessible();
-		printClassInfo(args);
+		//printClassInfo(args);
 
 	}
 
@@ -41,6 +42,7 @@ public class ListClassMembers {
 	public static void testA() {
 		String s1 = "Hello";
 		// Class<?> stringclass=s1.getClass();
+		//System.out.println(s1);
 		printClassInfo(s1);
 		Integer x = 2000;
 		// Class<?> intClass=x.getClass();
@@ -60,6 +62,9 @@ public class ListClassMembers {
 			classReference = Class.forName(classname); // Actor actorclass=null;
 			//fetch an array of references to each constructor in the class
 			Constructor<?> clist[]=classReference.getConstructors();
+			for(int i=0;i<clist.length;i++) {
+				System.out.println(clist[i]);
+			}
 			// newInstance is a method that create an instance(object) of the calss
 			// using the  constructor reference
 			
@@ -67,7 +72,10 @@ public class ListClassMembers {
 		
 		   // fetch reference to the default constructor of the class
 		   Constructor<?> defaultConstructor=classReference.getDeclaredConstructor();
+		   
 		   Object obj=defaultConstructor.newInstance();
+		   System.out.println(defaultConstructor);
+		   
 		
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
@@ -87,7 +95,10 @@ public class ListClassMembers {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 
 
 	}
@@ -101,7 +112,7 @@ public class ListClassMembers {
 		actorReference.printName();
 	}
 
-	@SuppressWarnings("deprecation")
+//	@SuppressWarnings("deprecation")
 	public static void lateBinding() {
 		java.util.Scanner sc = new Scanner(System.in);
 		try {
@@ -152,7 +163,7 @@ public class ListClassMembers {
 				 * Class.forName("java.lang.reflect.Modifier")); System.out.println("\t" +
 				 * flist[i].getType() + " " + flist[i].getName() + " Modifier " +modifier );
 				 */
-				System.out.println("\t Datatypes: " + flist[i].getType() + "name: " + flist[i].getName() + "Modifier"
+				System.out.println("\t Datatypes: " + flist[i].getType() + "  name: " + flist[i].getName() + "  Modifier:"
 						+ flist[i].getModifiers());
 
 			}

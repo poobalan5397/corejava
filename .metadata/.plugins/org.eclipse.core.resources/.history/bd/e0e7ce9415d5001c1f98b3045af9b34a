@@ -1,0 +1,22 @@
+package com.chainsys.miniproject.entry;
+//import com.chainsys.miniproject.test.TestEmployeeDao;
+//import com.chainsys.miniproject.ui.EmployeeUi;
+//import com.chainsys.miniproject.dao;
+//import com.chainsys.miniproject.pojo;
+//import com.chainsys.miniproject.ui;
+//import com.chainsys.miniproject.ui.EmployeeUi;
+import com.chainsys.miniproject.test.TestDoctorDao;
+import com.chainsys.miniproject.ui.DoctorUi;
+import com.chainsys.miniproject.test.TestAppointmentDao;
+
+
+public class Startup {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//TestDoctorDao.testGetDoctorById() ;
+		//DoctorUi.addNewDoctor() ;
+		TestAppointmentDao.testgetAppointmentById();
+	}
+
+}

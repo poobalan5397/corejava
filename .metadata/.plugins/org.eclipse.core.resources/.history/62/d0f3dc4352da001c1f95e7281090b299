@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>appoints</title>
+</head>
+<body>
+<form action="Doctors" method="post">
+<center>
+AppointmentId: <input type='text' name='aid'>
+<div>
+</div>
+AppointmentDate: <input type='text' name='date'>
+<div>
+</div>
+DoctorId: <input type='text' name='did'>
+<div>
+</div>
+PatientName: <input type='tex't name='patientname'>
+<div>
+</div>
+feescollected: <input type='text' name='fees'>
+<div>
+</div>
+feescategory: <input type='text' name='catageory'>
+<div>
+</div>
+<input type=submit value='press'>
+</center>
+</form>
+</body>
+</html>
